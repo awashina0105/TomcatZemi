@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+user agent stylesheet
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+.table_style01 {
+    width: 100%;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+body, input, button, textarea, select {
+    font-size: 1.8rem;
+    font-family: "メイリオ","Hiragino Kaku Gothic Pro",Meiryo,"ヒラギノ角ゴ Pro W3","MS PGothic","MS UI Gothic",Helvetica,Arial,sans-serif;
+}
+.gradation-ani {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    background: linear-gradient(45deg, #00c8a0, #6450a0) fixed;
+    background-size: 200% 200%;
+    /* animation: bg-gradient 10s ease infinite; */
+    z-index: -1;
+}
+ul {
+    list-style: none;
+}
+
+
+
+
+
+.table_image_ico img {
+	margin-left: 0.08em;
+	margin-top: 0.08em;
+	float:left;
+}
+.table_style01 {
+	border-collapse: collapse;
+	border: solid 2px #707070;
+	margin: auto;
+}
+.table_image_ico img {
+	padding: 0.1em;
+	width: 18%;
+	height: 18%;
+}
+.table_style01 th {
+	background: #C0C0C0;
+}
+.table_style01 th, .table_style01 td {
+	border: solid 1.5px #707070;
+}
+.table_style01 td {
+	padding-left: 1em;
+}
+
+
+
+
+
+
+.inner {
+	background: url(img/bg.jpg), #000;
+	background-repeat: repeat-x;
+    background-size: 1600px 700px;
+    background-attachment: fixed;
+}
+.mw-body-day {
+	color: #ffffff;
+}
+.mw-body-title {
+	color: #ffffff;
+}
+.mw-body-category {
+	color: #ffffff;
+}
+.mw-body {
+	background: linear-gradient(45deg, #00c8a0, #6450a0) fixed;
+	background-size: 200% 200%;
+}
+.mw-body2 {
+	background: url(img/bg_pattan.png);
+	background-size: 16.7% auto;
+}
+.mw-body3 {
+	background: rgba(0, 0, 0, .6);
+}
+
+.table_style01 {
+	border-collapse: collapse;
+	border: solid 2px #ffffff;
+	margin: auto;
+	color: #ffffff;
+}
+.table_style01 th {
+	background: #808080;
+	background: rgba(128,128,128,0.6);
+}
+.table_style01 th, .table_style01 td {
+	border: solid 1.5px #ffffff;
+}
+#main {
+	color: #ffffff;
+}

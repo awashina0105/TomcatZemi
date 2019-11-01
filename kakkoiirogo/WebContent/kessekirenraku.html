@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="menu.css"/><!-- メニューバー及び画面全体設定のCSS -->
+<link rel="stylesheet" href="menu2.css"/>
+<link rel="stylesheet" href="absence.css"/>
+
+<meta charset="UTF-8">
+<title>欠席連絡画面</title>
+</head>
+
+<body>
+	<header>
+		<div class="inner">
+			<h1><a href="menuTest.html"><img src="img/zanteilogo.png" alt="暫定ロゴ"></a></h1>
+		</div>
+	</header>
+	<nav id="menubar" class="nav-fix-pos">
+		<ul class="inner">
+			<li class="home"><a href="menuTest.html">ホーム<span>home</span></a></li>
+			<li class="schedule"><a href="">時間割確認<span>schedule</span></a></li>
+			<li class="absence"><a href="">欠席連絡<span>absence</span></a></li>
+			<li class="account"><a href="">アカウント<br>情報変更<span>account</span></a></li>
+			<li class="logout"><a href="">ログアウト<span>logout</span></a></li>
+		</ul>
+	</nav>
+
+	<div class="inner">
+		<div class="mw-body">
+			<div class="mw-body-content">
+				<h1 style="border-bottom: 0; font-size: 1.8em;">欠席連絡</h1>
+				<div class="content-absence">
+				<form action="">
+					種別<br>
+					<!-- 名前を同じでグループ化 -->
+					<input type="radio" name="example" value="選択肢1" checked>選択肢1
+					<input type="radio" name="example" value="選択肢2">選択肢2
+					<input type="radio" name="example" value="選択肢3">選択肢3<br>
+					日付<br>
+					<input type="date" id="date" min= >
+
+					<script type="text/javascript">
+						var dateControl = document.querySelector('input[type="date"]');
+						dateControl.value = getNow();
+						document.getElementById('date').innerHTML = getNow();
+						function getNow() {
+							var now = new Date();
+							var year = now.getFullYear();
+							var mon = now.getMonth()+1; //１を足すこと
+							var day = now.getDate();
+							//出力用
+							var s = year + "-" + mon + "-" + day;
+							return s;
+						}
+					</script><br>
+					理由<br>
+					詳細（任意）<br>
+					ホームに戻る
+					確認画面
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

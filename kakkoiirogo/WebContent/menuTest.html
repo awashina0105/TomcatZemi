@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="tab.css"/><!-- タブメニューのCSS -->
+<link rel="stylesheet" href="menu.css"/><!-- メニューバー及び画面全体設定のCSS -->
+<meta charset="UTF-8">
+<title>ホーム画面</title>
+</head>
+
+<!-- ここから下メニューバー共通コード （これも一緒にコピーして使用すること）-->
+
+<body>
+<header>
+<div class="inner">
+<h1><a href="menuTest.html"><img src="img/zanteilogo.png" alt="暫定ロゴ"></a></h1>
+</div>
+</header>
+<nav id="menubar" class="nav-fix-pos">
+<ul class="inner">
+<li class="home"><a href="menuTest.html">ホーム<span>home</span></a></li>
+<li class="schedule"><a href="">時間割確認<span>schedule</span></a></li>
+<li class="absence"><a href="">欠席連絡<span>absence</span></a></li>
+<li class="account"><a href="">アカウント<br>情報変更<span>account</span></a></li>
+<li class="logout"><a href="">ログアウト<span>logout</span></a></li>
+</ul>
+</nav>
+
+<!-- ここまで -->
+
+<!-- ここから下ホーム画面本体 -->
+
+<div class="inner">
+<p>
+<h3>ようこそ！nishinoさん</h3>
+
+
+<div class="cp_tab">
+	<input type="radio" name="cp_tab" id="tab1_1" aria-controls="first_tab" checked>
+	<label for="tab1_1">最新</label>
+	<input type="radio" name="cp_tab" id="tab1_2" aria-controls="schedule_tab">
+	<label for="tab1_2">時間割</label>
+	<input type="radio" name="cp_tab" id="tab1_3" aria-controls="closed_tab">
+	<label for="tab1_3">休校</label>
+	<input type="radio" name="cp_tab" id="tab1_4" aria-controls="job_hunting_tab">
+	<label for="tab1_4">就活</label>
+	<input type="radio" name="cp_tab" id="tab1_5" aria-controls="counseling_tab">
+	<label for="tab1_5">カウンセリング</label>
+	<div class="cp_tabpanels">
+		<div id="first_tab" class="cp_tabpanel">
+		<p>9/25　　<a href="">本日休校のお知らせ</a></p>
+		<p>9/22　　<a href="">スケジュール調整に伴う一次面接延期のお知らせ</a></p>
+		</div>
+		<div id="schedule_tab" class="cp_tabpanel">
+
+		</div>
+		<div id="closed_tab" class="cp_tabpanel">
+		<p>9/25　　<a href="">本日休校のお知らせ</a></p>
+		</div>
+		<div id="job_hunting_tab" class="cp_tabpanel">
+		<p>9/22　　<a href="">スケジュール調整に伴う一次面接延期のお知らせ</a></p>
+		</div>
+		<div id="counseling_tab" class="cp_tabpanel">
+
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

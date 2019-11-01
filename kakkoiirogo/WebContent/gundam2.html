@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="menu.css"/><!-- メニューバー及び画面全体設定のCSS -->
+<link rel="stylesheet" href="menu2.css"/><!-- メニューバーから下の画面設定 -->
+<link rel="stylesheet" href="table.css"/>
+<link rel="stylesheet" href="gundam.css"/>
+
+
+<meta charset="UTF-8">
+<title>お知らせ画面</title>
+</head>
+
+<body>
+<header>
+<div class="inner">
+<h1><a href="menuTest.html"><img src="img/zanteilogo.png" alt="暫定ロゴ"></a></h1>
+</div>
+</header>
+<nav id="menubar" class="nav-fix-pos">
+<ul class="inner">
+<li class="home"><a href="menuTest.html">ホーム<span>home</span></a></li>
+<li class="schedule"><a href="">時間割確認<span>schedule</span></a></li>
+<li class="absence"><a href="">欠席連絡<span>absence</span></a></li>
+<li class="account"><a href="">アカウント<br>情報変更<span>account</span></a></li>
+<li class="logout"><a href="">ログアウト<span>logout</span></a></li>
+</ul>
+</nav>
+
+<div class="inner">
+	<div class="mw-body">
+	<div class="mw-body2">
+	<div class="mw-body3">
+			<div class="mw-body-header">
+				<div class="mw-body-title" >アップデートのお知らせ
+					<div class="mw-body-category">カテゴリ:アップデート</div>
+				</div>
+				<div class="mw-body-line"></div>
+			</div>
+
+		<div class="mw-body-content">
+			<div id="main">以下の機体を修正しました。</div>
+			<table class="table_style01" >
+				<tbody>
+					<tr>
+						<th colspan="2" style="background:rgba(79,129,189,0.6);">
+							<div class="table_image_ico">
+								<img src="img/vs2_20_r20b.png">
+								<p id="bull">ブルディスティニー1号機</p>
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2" class="w30" style="font-size:90%">ブルディスティニー1号機（共通）</th>
+					</tr>
+					<tr>
+						<td style="font-size:80%">機動力</td>
+						<td style="font-size:80%">機動力を上げました。</td>
+					</tr>
+					<tr>
+						<td style="font-size:80%">メイン射撃</td>
+						<td style="font-size:80%">誘導性能を上げました。<br>
+						最大連射数を上げました。（10→40)<br>
+						ダメージを上げました。（15→100)<br>
+						補正値を下げました。<br>
+						ダウン値を上げました。<br>
+						一発毎に銃口補正がつくようにしました。</td>
+					</tr>
+					<tr>
+						<td style="font-size:80%">特殊射撃</td>
+						<td style="font-size:80%">リロード時間を調整しました。（-4秒）<br>
+						メインにキャンセルできるようにしました。</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="mw-body-footer">
+			<div id="next"><a href="">◀</a></div>
+			<div id="top"><a href="menuTest.html">ホームに戻る</a></div>
+			<div id="prev"><a href="">▶</a></div>
+		</div>
+	</div>
+	</div>
+	</div>
+</div>
+
+
+</body>
+</html>

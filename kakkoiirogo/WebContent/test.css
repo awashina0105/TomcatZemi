@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.inner {
+	max-width: 1500px;	/*サイトの最大幅*/
+	margin: 0 auto;
+	padding: 0 3%;		/*上下、左右へのボックス内の余白*/
+}
+
+body {
+	background: #2F4F4F;
+}
+
+.mw-body {
+	background: #2F4F4F;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #666;	/*全体の文字色*/
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	font-size: 16px;	/*文字サイズ*/
+	line-height: 2;		/*行間*/
+	background: #f9f6f0;
+}

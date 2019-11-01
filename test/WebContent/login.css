@@ -1,0 +1,87 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	color: #666;	/*全体の文字色*/
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	font-size: 14px;	/*文字サイズ*/
+	background-color: #f9f6f0;
+	background-image: url(img/login.PNG) ;
+	background-attachment: fixed;
+	background-position: center center;
+	background-size: cover;
+}
+
+#form{
+    width: 500px;
+    margin: 10em auto;
+    padding: 20px;
+    background-color: #BAD3FF;
+    border: 5px double #555;
+    border-radius: 60px;
+
+    }
+
+#form h2{
+	margin: 0em auto;
+	width: 300px;
+	padding-top: 10px;
+	line-height: 0px;
+}
+
+h1 {
+    text-align: center;
+    color: #666;
+    margin: 0 0 30px 0;
+    position: relative;
+}
+
+h1:after,
+h1:before {
+    background-color: #777;
+    content: "";
+    height: 3px;
+    position: absolute;
+    top: 15px;
+    width: 200px;
+}
+
+h1:after {
+    right: 0;
+}
+
+h1:before {
+    background-image: linear-gradient(right, #777, #fff);
+    left: 0;
+}
+
+p{
+	line-height: 0em;
+	margin-left: 2em
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 430px;
+    padding: 4px;
+    }
+
+input[type="submit"]{
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	color: #000000;
+	border: double 5px #1f4e79;
+	border-radius: 3px;
+	transition: .4s;
+	background-color: #a8e2ff
+}
+
+
+
+h3{
+	text-align: right;
+	padding-right: 3em;
+	font-size: 12px;
+}

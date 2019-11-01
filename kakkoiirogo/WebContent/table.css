@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table_style01 {
+    width: 100%;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+
+
+
+.table_image_ico img {
+	margin-left: 0.08em;
+	margin-top: 0.08em;
+	float:left;
+}
+.table_style01 {
+	border-collapse: collapse;
+	border: solid 2px #707070;
+	margin: auto;
+}
+.table_image_ico img {
+	padding: 0.1em;
+	width: 18%;
+	height: 18%;
+}
+.table_style01 th {
+	background: #C0C0C0;
+}
+.table_style01 th, .table_style01 td {
+	border: solid 1.5px #707070;
+}
+.table_style01 td {
+	padding-left: 1em;
+}
