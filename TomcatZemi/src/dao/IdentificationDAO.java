@@ -17,7 +17,7 @@ public class IdentificationDAO extends OpenAndCloseDAO {
 	}
 
 
-	public boolean identification(String studentId, String studentMail, String answer, String salt) {
+	public boolean identification(String studentId, String studentMail, String answer, String salt, String questionId) {
 
 		ResultSet result = null;
 
@@ -32,10 +32,11 @@ public class IdentificationDAO extends OpenAndCloseDAO {
 		String answerHash = sa.getDigest(studentIdBox, answerBox, salt);
 
 		try{
-			statement = connect.prepareStatement("SELECT * FROM student_table WHERE studentId = ? AND studentMail = ? AND answer = ?");
+			statement = connect.prepareStatement("SELECT * FROM student_table WHERE studentId = ? AND studentMail = ? AND answer = ? AND questionId = ?");
 			statement.setString(1, studentId);
 			statement.setString(2, studentMail);
 			statement.setString(3, answerHash);
+			statement.setString(4, questionId);
 			ResultSet resultSet = statement.executeQuery();
 
 			exists = resultSet.next();

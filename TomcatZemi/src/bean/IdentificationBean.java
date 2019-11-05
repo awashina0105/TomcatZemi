@@ -5,7 +5,16 @@ public class IdentificationBean {
 
 	private String studentId;
 	private String studentMail;
+	private String questionId;
 	private String answer;
+
+	public String getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
+	}
+
 
 	public String getStudentId() {
 		return studentId;
