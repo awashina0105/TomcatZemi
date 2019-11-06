@@ -3,6 +3,7 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import bean.StudentRegistrationBean;
 import sha2.SaltUserPassword;
 import sha2.ToSHA2;
 
@@ -31,6 +32,7 @@ public class StudentRegistrationDAO extends OpenAndCloseDAO {
 		String answerHash = sa.getDigest(studentIdBox, answerBox, salt);
 
 
+		StudentRegistrationBean sbean = new StudentRegistrationBean();
 
 
 		try{

@@ -29,7 +29,7 @@ public class PassChangeDAO extends OpenAndCloseDAO {
 		String passHash = sa.getDigest(studentIdBox, studentNewPassBox, salt);
 
         try {
-        	statement = connect.prepareStatement("UPDATE student_table SET StudentPass=? WHERE StudentId=?");
+        	statement = connect.prepareStatement("UPDATE student_table SET studentPass=? WHERE studentId=?");
             statement.setString(1,passHash);
             statement.setString(2,studentId);
 

@@ -45,19 +45,16 @@ public class IdentificationServlet extends HttpServlet {
 		String salt = gsdao.getSalt(studentId);
 
 		if(StringUtils.isEmpty(ibean.getStudentId()) || StringUtils.isEmpty(ibean.getQuestionId()) || StringUtils.isEmpty(ibean.getStudentMail()) || StringUtils.isEmpty(ibean.getAnswer())){
-			send = "未回答エラー画面";
-
-
-		}else{
 
 			if (idao.identification(studentId, studentMail, answer, salt, questionId)) {
 				send = "メール送信へ";
 
 			}else{
-
 				send = "照合エラー画面";
-			}
 
+			}
+		}else{
+			send ="未回答エラー画面";
 		}
 		response.sendRedirect(send);
 

@@ -3,6 +3,8 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import bean.TimeBean;
+
 public class TimeDAO extends OpenAndCloseDAO {
 
 	private PreparedStatement statement = null;
@@ -17,6 +19,7 @@ public class TimeDAO extends OpenAndCloseDAO {
 
 		boolean exists = false;
 
+		TimeBean tbean = new TimeBean();
 
 
 		try{

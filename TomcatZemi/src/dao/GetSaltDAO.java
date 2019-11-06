@@ -17,7 +17,7 @@ public class GetSaltDAO extends OpenAndCloseDAO {
 		ResultSet result = null;
 		String salt = "";
 		try{
-			statement = connect.prepareStatement("SELECT salt FROM student_table WHERE StudentId = ?");
+			statement = connect.prepareStatement("SELECT salt FROM student_table WHERE studentId = ?");
 			statement.setString(1, studentId);
 			result = statement.executeQuery();
 

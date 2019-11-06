@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import bean.IdentificationBean;
 import sha2.SaltUserPassword;
 import sha2.ToSHA2;
 
@@ -22,6 +23,7 @@ public class IdentificationDAO extends OpenAndCloseDAO {
 
 		boolean exists = false;
 
+		IdentificationBean ibean = new IdentificationBean();
 
 		ToSHA2 SHA = new ToSHA2();
 		SaltUserPassword sa = new SaltUserPassword();
@@ -30,7 +32,7 @@ public class IdentificationDAO extends OpenAndCloseDAO {
 		String answerHash = sa.getDigest(studentIdBox, answerBox, salt);
 
 		try{
-			statement = connect.prepareStatement("SELECT * FROM student_table WHERE StudentId = ? AND StudentMail = ? AND Answer = ? AND QuestionId = ?");
+			statement = connect.prepareStatement("SELECT * FROM student_table WHERE studentId = ? AND studentMail = ? AND answer = ? AND questionId = ?");
 			statement.setString(1, studentId);
 			statement.setString(2, studentMail);
 			statement.setString(3, answerHash);

@@ -20,13 +20,13 @@ public class PassConfirmationDAO extends OpenAndCloseDAO {
 
 
 		try {
-        	statement = connect.prepareStatement("SELECT * FROM student_table WHERE StudentId = ?");
+        	statement = connect.prepareStatement("SELECT * FROM student_table WHERE studentId = ?");
             statement.setString(1,studentId);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
 
-            	lbean.setStudentPass(resultSet.getString("StudentPass"));
+            	lbean.setStudentPass(resultSet.getString("studentPass"));
             }
 
         }catch (SQLException e) {
