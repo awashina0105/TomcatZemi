@@ -10,7 +10,7 @@ public class StudentArrayBean {
 		studentArray = new ArrayList<StudentDeleteBean>();
 	}
 
-	public ArrayList<StudentDeleteBean> getStudentArrayArray() {
+	public ArrayList<StudentDeleteBean> getStudentArray() {
 		return studentArray;
 	}
 
