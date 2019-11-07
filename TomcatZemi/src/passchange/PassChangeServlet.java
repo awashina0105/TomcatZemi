@@ -48,6 +48,10 @@ public class PassChangeServlet extends HttpServlet {
 
 		if(StringUtils.isEmpty(pcbean.getStudentNewPass()) || StringUtils.isEmpty(pcbean.getConfirmationPass())){
 
+			send = "空白エラー画面";
+
+		}else{
+
 			if (studentNewPass.equals(confirmationPass)) {
 				String salt = gsdao.getSalt(studentId);
 
@@ -60,12 +64,12 @@ public class PassChangeServlet extends HttpServlet {
 			}else{
 				send = "新パスと確認パスが一致しないエラー画面";
 			}
-		}else{
-			send = "空白エラー画面";
-		}
 
+
+
+
+		}
 		response.sendRedirect(send);
 
 	}
-
 }

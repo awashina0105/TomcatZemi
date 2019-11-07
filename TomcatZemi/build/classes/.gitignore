@@ -1,7 +1,11 @@
 /bean/
-/src/
+/dao/
+/identification/
+/login/
+/maildeliverysetting/
 /passchange/
 /passconfirmation/
-/dao/
+/salt/
+/sha2/
+/studentdelete/
 /studentregistration/
-/identification/
