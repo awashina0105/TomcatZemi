@@ -27,5 +27,13 @@
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/tomcat-util-scan.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/websocket-api.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/dsn-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/gimap-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/imap-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/javax.mail-api-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/logging-mailhandler-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/mailapi-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/pop3-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/smtp-1.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
