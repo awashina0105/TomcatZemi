@@ -1,4 +1,4 @@
-package studentdelete;
+package passreset;
 
 import java.io.IOException;
 
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
-import bean.StudentInfoBean;
-import dao.StudentDeleteDAO;
+import bean.TeacherInfoBean;
+import dao.PassResetDAO;
 
 /**
- * Servlet implementation class StudentdeleteServlet
+ * Servlet implementation class TeacherPassResetServlet
  */
-@WebServlet("/StudentDeleteServlet")
-public class StudentDeleteServlet extends HttpServlet {
+@WebServlet("/TeacherPassResetServlet")
+public class TeacherPassResetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentDeleteServlet() {
+    public TeacherPassResetServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,28 @@ public class StudentDeleteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		StudentDeleteDAO sddao = new StudentDeleteDAO();
-		String send = "";
+		TeacherInfoBean tibean = new TeacherInfoBean();
+		PassResetDAO prdao = new PassResetDAO();
+		String send = "エラー画面";
 
-		String studentId = request.getParameter("studentId");
+		String teacherId = request.getParameter("teacherId");
 
-		StudentInfoBean sibean = sddao.StudentInfoSearch(studentId);
+		tibean = prdao.TeacherIdSearch(teacherId);
 
-		String studentIdCheck = sibean.getStudentId();
+		String teacherIdCheck = tibean.getTeacherId();
 
-		if (StringUtils.isEmpty(studentIdCheck)) {
+		if (StringUtils.isEmpty(teacherIdCheck)) {
 			send = "エラー画面";
 
 		}else{
-			session.setAttribute("studentinfo", sibean);
+			session.setAttribute("teacherinfo", tibean);
 
-			send = "アカウント消去確認画面";
+			send = "初期化確認画面";
 		}
 
+
 		response.sendRedirect(send);
+
 	}
 
 }

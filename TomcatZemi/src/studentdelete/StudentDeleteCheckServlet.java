@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.StringUtils;
-
 import bean.StudentInfoBean;
 import dao.StudentDeleteDAO;
 
@@ -18,13 +16,13 @@ import dao.StudentDeleteDAO;
  * Servlet implementation class StudentdeleteServlet
  */
 @WebServlet("/StudentDeleteServlet")
-public class StudentDeleteServlet extends HttpServlet {
+public class StudentDeleteCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentDeleteServlet() {
+    public StudentDeleteCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,21 +33,16 @@ public class StudentDeleteServlet extends HttpServlet {
 		StudentDeleteDAO sddao = new StudentDeleteDAO();
 		String send = "";
 
-		String studentId = request.getParameter("studentId");
+		StudentInfoBean sibean = (StudentInfoBean) session.getAttribute("studentinfo");
 
-		StudentInfoBean sibean = sddao.StudentInfoSearch(studentId);
+		String studentId = sibean.getStudentId();
 
-		String studentIdCheck = sibean.getStudentId();
+		if (sddao.studentdelete(studentId)) {
 
-		if (StringUtils.isEmpty(studentIdCheck)) {
-			send = "エラー画面";
-
+			send = "削除完了画面";
 		}else{
-			session.setAttribute("studentinfo", sibean);
-
-			send = "アカウント消去確認画面";
+			send = "削除エラー画面";
 		}
-
 		response.sendRedirect(send);
 	}
 

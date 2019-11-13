@@ -1,4 +1,4 @@
-package studentdelete;
+package teacherInfoget;
 
 import java.io.IOException;
 
@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.StringUtils;
-
-import bean.StudentInfoBean;
-import dao.StudentDeleteDAO;
+import bean.TeacherArrayBean;
+import dao.TeacherInfoDisplayDAO;
 
 /**
- * Servlet implementation class StudentdeleteServlet
+ * Servlet implementation class TeacherInfoGetServlet
  */
-@WebServlet("/StudentDeleteServlet")
-public class StudentDeleteServlet extends HttpServlet {
+@WebServlet("/TeacherInfoGetServlet")
+public class TeacherInfoGetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentDeleteServlet() {
+    public TeacherInfoGetServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,24 +30,20 @@ public class StudentDeleteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		StudentDeleteDAO sddao = new StudentDeleteDAO();
-		String send = "";
+		TeacherArrayBean tarraybean = new TeacherArrayBean();
+		TeacherInfoDisplayDAO tiddao = new TeacherInfoDisplayDAO();
+		String send = "エラー画面";
 
-		String studentId = request.getParameter("studentId");
+		tarraybean = tiddao.TeacherInfoGet();
 
-		StudentInfoBean sibean = sddao.StudentInfoSearch(studentId);
+		int i = tarraybean.getArrayListSize();
 
-		String studentIdCheck = sibean.getStudentId();
-
-		if (StringUtils.isEmpty(studentIdCheck)) {
+		if (0 == i) {
 			send = "エラー画面";
-
 		}else{
-			session.setAttribute("studentinfo", sibean);
-
-			send = "アカウント消去確認画面";
+			session.setAttribute("teacherarray", tarraybean);
+			send = "パスワード初期化の先生一覧画面";
 		}
-
 		response.sendRedirect(send);
 	}
 

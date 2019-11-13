@@ -15,12 +15,12 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 		open();
 	}
 
-	public StudentDeleteBean StudentIdSearch(String studentId){
+	public StudentDeleteBean StudentIdSearch(String name){
 		StudentDeleteBean sdbean = new StudentDeleteBean();
 
 		try{
 			statement = connect.prepareStatement("SELECT * FROM student_table WHERE StudentId = ?");
-			statement.setString(1,studentId);
+			statement.setString(1,name);
 			ResultSet resultSet = statement.executeQuery();
 
 			if (resultSet.next()) {
@@ -69,13 +69,13 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 		}
 
 
-	public StudentArrayBean StudentClassSearch(String classid){
+	public StudentArrayBean StudentClassSearch(String name){
 		StudentArrayBean arraybean = new StudentArrayBean();
 		ResultSet result = null;
 
 		try{
 			statement = connect.prepareStatement("SELECT * FROM student_table WHERE Classid = ?");
-			statement.setString(1,classid);
+			statement.setString(1,name);
 			result = statement.executeQuery();
 
 			while(result.next()){

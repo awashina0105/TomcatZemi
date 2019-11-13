@@ -1,20 +1,11 @@
 package bean;
 
-public class TeacherInfoDisplayBean {
+public class TeacherInfoBean {
 
 
 	private String teacherId;
 	private String teacherLname;
 	private String teacherFname;
-	private String teacherPass;
-
-
-	public String getTeacherPass() {
-		return teacherPass;
-	}
-	public void setTeacherPass(String teacherPass) {
-		this.teacherPass = teacherPass;
-	}
 	private int role;
 
 

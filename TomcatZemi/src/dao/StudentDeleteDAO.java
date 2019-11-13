@@ -1,7 +1,10 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import bean.StudentInfoBean;
 
 public class StudentDeleteDAO extends OpenAndCloseDAO {
 
@@ -36,6 +39,34 @@ public class StudentDeleteDAO extends OpenAndCloseDAO {
 		return exists;
 
 	}
+
+
+	public StudentInfoBean StudentInfoSearch(String studentId){
+		StudentInfoBean sibean = new StudentInfoBean();
+
+		try{
+			statement = connect.prepareStatement("SELECT * FROM student_table WHERE StudentId = ?");
+			statement.setString(1,studentId);
+			ResultSet resultSet = statement.executeQuery();
+
+			if (resultSet.next()) {
+
+				sibean.setStudentId(resultSet.getString("studentId"));
+				sibean.setClassId(resultSet.getString("classId"));
+				sibean.setStudentLname(resultSet.getString("studentLname"));
+				sibean.setStudentFname(resultSet.getString("studentFname"));
+
+			}
+
+		}catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+		return sibean;
+
+	}
+
 
 
 

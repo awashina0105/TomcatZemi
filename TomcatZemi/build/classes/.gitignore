@@ -1,8 +1,6 @@
 /bean/
-/src/
-/passchange/
-/passconfirmation/
 /dao/
-/studentregistration/
-/identification/
+/passreset/
 /studentdelete/
+/studentsearch/
+/teacherInfoget/
