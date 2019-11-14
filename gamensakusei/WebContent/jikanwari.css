@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+.main {
+	max-width: 1500px;	/*サイトの最大幅*/
+	margin: 0 auto;
+	padding: 3% 21%;		/*上下、左右へのボックス内の余白*/
+}
+
+.monthshitei {
+	display: flex;
+	justify-content: center;		/* アイテムを中央に寄せる */
+	justify-content: space-between;		/* 各アイテムを均等に配置し
+                                   最初のアイテムは先頭に寄せ、
+                                   最後のアイテムは末尾に寄せる */
+	width: 100%;
+}
+
+#month {
+	text-align: center;		/*月の場所指定*/
+}
+#next {
+	text-align: start;
+	width: 20px;
+}
+#prev {
+	text-align: end;
+}
+
+table {
+	border-collapse: collapse;
+    table-layout: fixed;
+   	width: 500px;
+   	height: 300px;
+}
+
+h3.monthyotei{
+	text-align: center;
+}

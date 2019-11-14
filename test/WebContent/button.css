@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+
+/*リンクをボタンに見せかける*/
+/*外側のボーダー*/
+.link-button {
+	display: inline-block;
+	width: 125px;
+	padding: 1px;
+	text-align: center;
+	background: #c8e8ff;
+	border-style: solid;
+	border-color: #80a0ff;
+	border-radius: 4px;
+}
+/*内側のボーダー*/
+/* a_アンカー用 */
+.link-button a{
+	display: block;
+	width: ;
+	padding: 10px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-align: center;
+	border: 2px solid;
+	border-color: #80a0ff;
+	background: #ffffff;
+	border-radius: 2px;
+	text-decoration: none;
+	color: #666;
+}
+/* submit用 */
+.link-button input[type="submit"]{
+	display: block;
+	width: 125px;
+	height: 36px;
+	padding: 10px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	font-size: 16px;
+	text-align: center;
+	font-size: 16px;
+	border: 2px solid;
+	border-color: #80a0ff;
+	border-radius: 2px;
+	background: #ffffff;
+	color: #666;
+}
+/* submit用 class使用 */
+.submit_button {
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	color: #5a5a5a;
+	width: 125px;
+	height: 36px;
+	background: #ffffff;
+	border: 2px solid;
+	border-color: #80a0ff;
+	border-radius: 2px;
+}
+
+/*複数使用可能にする予定。汎用*/
+/*↓↓↓↓↓↓↓↓↓↓↓↓↓↓*/
+/*二つボタン用、左詰め＆中央左寄せ*/
+.input_left {
+	text-align: left;
+	float: left;
+}
+.input_center {
+	margin-right:50%;
+	min-width:350px;
+	text-align: center;
+	margin-left: 25px;
+}
+/*二つボタン用、左詰め＆右詰め*/
+.input_left {
+	text-align: left;
+	float: left;
+}
+.input_rigth {
+	text-align: right;
+}
+
+/*パスワード再設定用レイアウト*/
+.p_link-button {
+	display: inline-block;
+	text-align: right;
+	width: 200px;
+	padding: 1px;
+	border-style: solid;
+	border-color: #80a0ff;
+	border-radius: 4px;
+	background: #c8e8ff;
+}
+.p_submit_button {
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	font-size: 16px;
+	color: #5a5a5a;
+	height: 36px;
+	background: #ffffff;
+	border: 2px solid;
+	border-color: #80a0ff;
+	border-radius: 2px;
+}
+.p_harf-button {
+	display: inline-block;
+	width: 240px;
+	padding: 1px;
+		text-align: center;
+	border-style: solid;
+	border-color: #80a0ff;
+	border-radius: 4px;
+}
+.p_harf-button a {
+	display: inline-block;
+	width: 236px;
+	padding-top: 4px;
+	padding-bottom: -2px;
+	text-align: center;
+	color: #5a5a5a;
+	height: 36px;
+	background: #ffffff;
+	border: 2px solid;
+	border-color: #80a0ff;
+	border-radius: 2px;
+	text-decoration: none;
+}

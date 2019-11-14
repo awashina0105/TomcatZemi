@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="menu.css"/><!-- メニューバー及び画面全体設定のCSS -->
+<link rel="stylesheet" href="menu2.css"/>
+<link rel="stylesheet" href="jikanwaritouroku.css"/>
+<meta charset="UTF-8">
+<title>時間割登録</title>
+</head>
+
+<!-- ここから下メニューバー共通コード （これも一緒にコピーして使用すること）-->
+
+<body>
+<form action="jikanwariServlet" method="get">
+<header>
+<div class="inner">
+<h1><a href="menuTest.html"><img src="img/zanteilogo.png" alt="暫定ロゴ"></a></h1>
+</div>
+</header>
+<nav id="menubar" class="nav-fix-pos">
+<ul class="inner">
+<li class="home"><a href="menuTest.html">ホーム<span>home</span></a></li>
+<li class="schedule"><a href="">時間割確認<span>schedule</span></a></li>
+<li class="absence"><a href="">欠席連絡<span>absence</span></a></li>
+<li class="account"><a href="">アカウント<br>情報変更<span>account</span></a></li>
+<li class="logout"><a href="">ログアウト<span>logout</span></a></li>
+</ul>
+</nav>
+
+<!-- ここまで -->
+
+<!-- ここから下ホーム画面本体 -->
+<div class="inner">
+<div class="mw-body">
+<div class="mw-body-content">
+
+<div class="firstselect">
+<select name="year">
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+年度　S3A1クラス　
+<select name="senkou">
+<option value="nw">ネットワーク</option>
+<option value="g">ゲーム</option>
+</select>
+専攻
+</div>
+
+<div class="secondselect">
+<select name="month">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+月の時間割
+</div>
+
+<table border="1" class="color111" align = "center">
+<tr class="color00">
+<th class="color01">月</th>
+<th class="color01">火</th>
+<th class="color01">水</th>
+<th class="color01">木</th>
+<th class="color01">金</th>
+</tr>
+
+<tr class="color02">
+<th><select name = hoge[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge1[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge2[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge3[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge4[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+</tr>
+
+<tr class="color03">
+<th><select name = hoge[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge1[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge2[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge3[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge4[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+</tr>
+
+<tr class="color02">
+<th><select  name = hoge[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge1[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge2[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge3[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge4[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+</tr>
+
+<tr class="color03">
+<th><select name = hoge[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge1[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge2[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge3[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+<th><select name = hoge4[]>
+<option value="kyouka01">システム構築総合演習</option>
+<option value="kyouka02">Webサイト構築</option>
+<option value="kyouka03">CSPM-T</option>
+<option value="kyouka04">テストと移行導入</option>
+<option value="kyouka05">企画と提案</option>
+<option value="kyouka06">就職指導</option>
+<option value="kyouka07">LHR</option>
+</select></th>
+</tr>
+</table>
+
+<div class="sub2">
+<table class="table2">
+<tr>
+<th>
+<div class="link-bottan">
+<a href="menuTest.html">ホームに戻る</a>
+</div>
+</th>
+<th>
+<div class="link-button2">
+<input type="submit" value="確認画面" class="button2">
+</div>
+</th>
+</tr>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+.firstselect {
+	padding: 2% 13%;		/*上下、左右へのボックス内の余白*/
+}
+.secondselect {
+	text-align: center;		/*テキストを真ん中に*/
+}
+table{
+	border-collapse: collapse;
+    table-layout: fixed;
+   	width: 800px;
+   	height: 300px;
+}
+
+table.color111{
+	border-color: #87CEEB;		/*枠線色変更*/
+}
+tr.color00 {
+	background-color: #4682b4		/*tr文字の色変更（青）*/
+}
+
+th.color01 {
+	color: #ffffff;		/*th文字の色変更（白）*/
+}
+
+tr.color02{
+	background-color: #c7e6e2;		/*tr文字の色変更（薄い青）*/
+}
+
+tr.color03{
+	background-color: #ffffff;		/*tr文字の色変更（白）*/
+}
+
+.link-bottan a{
+	display: block;			/*リンクをボタンに見せかける*/
+	width: 100px;				/*内側のボーダー*/
+	padding-top: 2px;		/*縦*/
+	text-align: center;
+	border: 2px solid;
+	border-color: #aaa0ff;
+	background: #ffffff;
+	border-radius: 2px;
+	text-decoration: none;
+	color: #666;
+}
+
+.link-bottan {
+	display: block;			/*外側のボーダー*/
+	width: 105px;
+	padding: 1px;
+	margin-left:30px;
+	text-align: center;
+	border-style: solid;
+	border-color: #80a0ff;
+	border-radius: 4px;
+}
+
+.table2{
+	border-collapse: collapse;
+    table-layout: fixed;
+   	width: 400px;
+}
+
+.sub2{
+	padding-top: -20px;
+	padding-right: 500px;
+	padding-left: 300px;
+}
+
+.link-button2 {
+	display: block;
+	width: 100px;
+	text-align: center;
+	border-style: solid;
+	border: 3px solid;
+	border-color: #80a0ff;
+	background: #ffffff;
+	border-radius: 2px;
+	text-decoration: none;
+	color: #666;
+}
+
+.button2 {
+	display: block;
+	padding: 10px 20px;
+	text-align: center;
+	border-style: solid;
+	border-color: #aaa0ff;
+	border-radius: 4px;
+	margin: 1px;
+}
+
