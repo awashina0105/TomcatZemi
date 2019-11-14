@@ -1,11 +1,1 @@
-/bean/
-/dao/
-/identification/
-/login/
-/maildeliverysetting/
-/passchange/
-/passconfirmation/
-/salt/
-/sha2/
-/studentdelete/
-/studentregistration/
+/sendmail/
