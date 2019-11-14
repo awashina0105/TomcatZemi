@@ -44,54 +44,54 @@ public class SendMail {
 		props.setProperty("mail.smtp.auth", "true");
 
 		// SSLを使用するとこはこの設定が必要。
-//        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-//        props.setProperty("mail.smtp.socketFactory.fallback", "false");
-//        props.setProperty("mail.smtp.socketFactory.port", "465");
+		//        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		//        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+		//        props.setProperty("mail.smtp.socketFactory.port", "465");
 
 		//propsに設定した情報を使用して、sessionの作成
-        final Session session = Session.getInstance(props, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(USERID, PASS);
-            }
-        });
+		final Session session = Session.getInstance(props, new Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(USERID, PASS);
+			}
+		});
 
-        //メッセージ内容の設定
-        final MimeMessage message = new MimeMessage(session);
+		//メッセージ内容の設定
+		final MimeMessage message = new MimeMessage(session);
 
-        try{
-        	final Address FROM = new InternetAddress(FROMMAIL, USERNAME, ENCODE);
+		try{
+			final Address FROM = new InternetAddress(FROMMAIL, USERNAME, ENCODE);
 
-        	message.setFrom(FROM);
+			message.setFrom(FROM);
 
-        	final Address TO = new InternetAddress(tomail, toUserName, ENCODE);
+			final Address TO = new InternetAddress(tomail, toUserName, ENCODE);
 
-        	//今回は一人にしか送らない
-        	message.setRecipient(Message.RecipientType.TO, TO);
-        	//件名
-        	message.setSubject("お知らせが更新されました", ENCODE);
-        	//本文
-        	message.setText(text ,ENCODE);
-        	//メールソフト名とバージョン
-        	//これがないと、迷惑メール扱いされる時がある
-        	message.addHeader("X-Mailer", "blancoMail 0.1");
-        	//日付情報
-        	message.setSentDate(new Date());
+			//今回は一人にしか送らない
+			message.setRecipient(Message.RecipientType.TO, TO);
+			//件名
+			message.setSubject("お知らせが更新されました", ENCODE);
+			//本文
+			message.setText(text ,ENCODE);
+			//メールソフト名とバージョン
+			//これがないと、迷惑メール扱いされる時がある
+			message.addHeader("X-Mailer", "blancoMail 0.1");
+			//日付情報
+			message.setSentDate(new Date());
 
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 
-        // メール送信。
-        try {
-            Transport.send(message);
-        } catch (AuthenticationFailedException e) {
-            // 認証失敗
-                 e.printStackTrace();
-        } catch (MessagingException e) {
-            // smtpサーバへの接続失敗
-           e.printStackTrace();
-        }
+		// メール送信。
+		try {
+			Transport.send(message);
+		} catch (AuthenticationFailedException e) {
+			// 認証失敗
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// smtpサーバへの接続失敗
+			e.printStackTrace();
+		}
 	}
 }
