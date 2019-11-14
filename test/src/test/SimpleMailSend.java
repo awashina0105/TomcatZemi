@@ -34,8 +34,8 @@ public class SimpleMailSend {
     public void process() {
         final Properties props = new Properties();
 
-        // 基本情報。ここでは niftyへの接続例を示します。
-        props.setProperty("mail.smtp.host", "smtp.nifty.com");
+        // 基本情報。ここでは fakeSMTPへの接続例を示します。
+        props.setProperty("mail.smtp.host", "localhost");
         props.setProperty("mail.smtp.port", "25");
 
         // タイムアウト設定
@@ -58,10 +58,10 @@ public class SimpleMailSend {
         final MimeMessage message = new MimeMessage(session);
         try {
             final Address addrFrom = new InternetAddress(
-                    "送信者○○○@nifty.ne.jp", "送信者の表示名", ENCODE);
+                    "example@example.co.jp", "送信者の表示名", ENCODE);
             message.setFrom(addrFrom);
 
-            final Address addrTo = new InternetAddress("受信者○○○@gmail.com",
+            final Address addrTo = new InternetAddress("example1@example.co.jp",
                     "受信者の表示名", ENCODE);
             message.addRecipient(Message.RecipientType.TO, addrTo);
 
