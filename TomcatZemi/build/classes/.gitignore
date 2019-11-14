@@ -4,3 +4,12 @@
 /studentdelete/
 /studentsearch/
 /teacherInfoget/
+/accountinfochange/
+/identification/
+/login/
+/maildeliverysetting/
+/passchange/
+/passconfirmation/
+/salt/
+/sha2/
+/studentregistration/

@@ -38,7 +38,7 @@ public class StudentRegistrationServlet extends HttpServlet {
 		String questionId = ("初期値");
 		String answer = ("初期値");
 		String salt = cSalt.createSalt();
-		String send = ("確認画面");
+		String send = ("エラー画面");
 
 
 
@@ -54,11 +54,12 @@ public class StudentRegistrationServlet extends HttpServlet {
 
 
 		if(StringUtils.isEmpty(srbean.getStudentId()) || StringUtils.isEmpty(srbean.getStudentFname()) || StringUtils.isEmpty(srbean.getStudentLname()) || StringUtils.isEmpty(srbean.getClassId())){
-			session.setAttribute("studentInfo", srbean);
-			send="登録確認画面";
+			send = "エラー画面";
+
 
 		}else{
-			send = "エラー画面";
+			session.setAttribute("studentInfo", srbean);
+			send="登録確認画面";
 		}
 		response.sendRedirect(send);
 

@@ -1,4 +1,4 @@
-package studentdelete;
+package accountinfochange;
 
 import java.io.IOException;
 
@@ -10,44 +10,41 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.StudentInfoBean;
-import dao.StudentDeleteDAO;
+import bean.StudentNewInfoBean;
 
 /**
- * Servlet implementation class StudentdeleteServlet
+ * Servlet implementation class AccountInfoChangeCheckServlet
  */
-@WebServlet("/StudentDeleteServlet")
-public class StudentDeleteCheckServlet extends HttpServlet {
+@WebServlet("/AccountInfoChangeCheckServlet")
+public class AccountInfoChangeCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentDeleteCheckServlet() {
+    public AccountInfoChangeCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		StudentDeleteDAO sddao = new StudentDeleteDAO();
-		String send = "";
+		String studentLname = request.getParameter("studentLname");
+		String studentFname = request.getParameter("studentFname");
+		String classId = request.getParameter("classId");
+		String send = "アカウント変更確認画面";
 
 		StudentInfoBean sibean = (StudentInfoBean) session.getAttribute("studentinfo");
+		StudentNewInfoBean snibean = new StudentNewInfoBean();
 
 		String studentId = sibean.getStudentId();
 
-		if (sddao.studentdelete(studentId)) {
-			session.removeAttribute("studentClassInfoarray");
-			session.removeAttribute("studenNameInfotarray");
-			session.removeAttribute("studenIdInfo");
+		snibean.setStudentId(studentId);
+		snibean.setStudentLname(studentLname);
+		snibean.setStudentFname(studentFname);
+		snibean.setClassId(classId);
+		session.setAttribute("newstudentinfo", snibean);
 
-			session.removeAttribute("studentarray");
-			session.removeAttribute("studentinfo");
-			send = "削除完了画面";
-		}else{
-			send = "削除エラー画面";
-		}
 		response.sendRedirect(send);
 	}
 

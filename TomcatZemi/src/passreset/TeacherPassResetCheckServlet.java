@@ -40,6 +40,7 @@ public class TeacherPassResetCheckServlet extends HttpServlet {
 		String salt = gsdao.getTeacherSalt(teacherId);
 
 		if (prdao.passReset(teacherId, salt)) {
+			session.removeAttribute("teacherarray");
 			session.removeAttribute("teacherinfo");
 			send = "パスワード初期化完了画面";
 		}else{
