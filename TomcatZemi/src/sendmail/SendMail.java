@@ -96,7 +96,7 @@ public class SendMail {
 	}
 
 
-	public void tosend(String tomail[], String toUserName, String text){
+	public void tosend(String toBccMail[], String toUserName, String text){
 		final Properties props = new Properties();
 
 		//基本情報。fakeSMTPを使用しているので、ホストはlocalhostを使用
@@ -124,17 +124,16 @@ public class SendMail {
 		});
 
 		//メッセージ内容の設定
-		final MimeMessage message = new MimeMessage(session);
+		MimeMessage message = new MimeMessage(session);
 
 		try{
 			final Address FROM = new InternetAddress(FROM_MAIL, USER_NAME, ENCODE);
 
 			message.setFrom(FROM);
+			for (String toMail : toBccMail){
+				message.setRecipient(Message.RecipientType.BCC, new InternetAddress(toMail));
+			}
 
-			final Address TO = new InternetAddress(tomail, toUserName, ENCODE);
-
-			//今回は一人にしか送らない
-			message.setRecipient(Message.RecipientType.TO, TO);
 			//件名
 			message.setSubject("お知らせが更新されました", ENCODE);
 			//本文
