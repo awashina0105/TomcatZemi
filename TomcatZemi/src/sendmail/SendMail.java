@@ -28,7 +28,7 @@ public class SendMail {
 	private static final String USER_ID = "userid";
 	private static final String PASS = "password";
 
-	public void tosend(String tomail, String toUserName, String text){
+	public void toSend(String tomail, String toUserName, String text){
 		final Properties props = new Properties();
 
 		//基本情報。fakeSMTPを使用しているので、ホストはlocalhostを使用
@@ -96,7 +96,7 @@ public class SendMail {
 	}
 
 
-	public void tosend(String toBccMail[], String toUserName, String text){
+	public void toSend(String toBccMail[], String toUserName, String text){
 		final Properties props = new Properties();
 
 		//基本情報。fakeSMTPを使用しているので、ホストはlocalhostを使用
@@ -130,8 +130,9 @@ public class SendMail {
 			final Address FROM = new InternetAddress(FROM_MAIL, USER_NAME, ENCODE);
 
 			message.setFrom(FROM);
+
 			for (String toMail : toBccMail){
-				message.setRecipient(Message.RecipientType.BCC, new InternetAddress(toMail));
+				message.setRecipient(Message.RecipientType.BCC, new InternetAddress(toMail, toUserName, ENCODE));
 			}
 
 			//件名
