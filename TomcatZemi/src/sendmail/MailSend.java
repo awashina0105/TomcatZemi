@@ -13,13 +13,15 @@ public class MailSend {
 	private static final String USER_NAME = "tomcatzemi2019@gmail.com";
 	private static final String USER_PASS = "2019tomcat";
 	private static final long SLEEP = 1000;
+	private static final String DRIVER = "webdriver.chrome.driver";
+	private static final String DRIVER_PASS = "C:/S3A1_07/pleiades/tomcat/8/lib/chromedriver_win32/chromedriver.exe";
 
 	private WebDriver driver;
 	private WebDriverWait wait;
 
 	public MailSend(){
 		//ドライバ名、およびドライバへのパス
-		System.setProperty("webdriver.chrome.driver", "C:/S3A1_07/pleiades/tomcat/8/lib/chromedriver_win32/chromedriver.exe");
+		System.setProperty(DRIVER, DRIVER_PASS);
 
 		//インスタンス化
 		driver = new ChromeDriver();
@@ -28,7 +30,7 @@ public class MailSend {
 
 
 
-	public boolean mailToSend(String toMail, String toSabject, String toBody){
+	public boolean mailToSend(String mailAddress, String toSabject, String toBody){
 
 		boolean isSend = true;
 
@@ -70,7 +72,7 @@ public class MailSend {
 			//宛先入力
 			Thread.sleep(SLEEP);
 			WebElement mailTo = wait.until(ExpectedConditions.elementToBeClickable(By.name("to")));
-			mailTo.sendKeys(toMail);
+			mailTo.sendKeys(mailAddress);
 
 			//件名入力
 			Thread.sleep(SLEEP);
@@ -109,7 +111,7 @@ public class MailSend {
 		return isSend;
 	}
 
-	public boolean mailBccSend(String toMail[], String toSabject, String toBody){
+	public boolean mailBccSend(String mailAddress[], String toSabject, String toBody){
 
 		boolean isSend = true;
 
@@ -151,7 +153,7 @@ public class MailSend {
 			//宛先入力
 			Thread.sleep(SLEEP);
 			WebElement mailBcc = wait.until(ExpectedConditions.elementToBeClickable(By.name("bcc")));
-			for(String mailTo : toMail){
+			for(String mailTo : mailAddress){
 				mailBcc.sendKeys(mailTo + ",");
 			}
 
