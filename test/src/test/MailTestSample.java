@@ -7,9 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MailTestSample {
 
-	  public void main(String args[]) throws InterruptedException {
+	  public static void main(String args[]) throws InterruptedException {
 	    // Optional. If not specified, WebDriver searches the PATH for chromedriver.
-	    System.setProperty("webdriver.chrome.driver", "C:/S3A1_07/pleiades/tomcat/8/lib/chromedriver_win32");
+	    System.setProperty("webdriver.chrome.driver", "C:/S3A1_07/pleiades/tomcat/8/lib/chromedriver_win32/chromedriver.exe");
 
 	    WebDriver driver = new ChromeDriver();
 	    driver.get("http://www.google.com/");
