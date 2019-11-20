@@ -10,7 +10,7 @@ public class CreateRandom {
 		int ram = 0;
 		try {
 			SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
-			ram = random.nextInt();
+			ram = random.nextInt(255);
 
 		} catch (NoSuchAlgorithmException e) {
 			// TODO 自動生成された catch ブロック
