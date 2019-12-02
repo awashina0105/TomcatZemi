@@ -37,7 +37,6 @@
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/tomcat-util-scan.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/websocket-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/176039/Downloads/javax.mail-api-1.6.2.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="C:/S3A1_07/pleiades/tomcat/8/lib/selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
