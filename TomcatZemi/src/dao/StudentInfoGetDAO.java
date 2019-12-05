@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import bean.StudentArrayBean;
-import bean.StudentDeleteBean;
+import bean.StudentRegistrationBean;
 
 public class StudentInfoGetDAO extends OpenAndCloseDAO {
 
@@ -25,13 +25,13 @@ public class StudentInfoGetDAO extends OpenAndCloseDAO {
 		result = statement.executeQuery();
 
 		while(result.next()){
-			StudentDeleteBean sdbean = new StudentDeleteBean();
-			sdbean.setStudentId(result.getString("studentId"));
-			sdbean.setClassId(result.getString("classId"));
-			sdbean.setStudentFname(result.getString("studentFname"));
-			sdbean.setStudentLname(result.getString("studentLname"));
+			StudentRegistrationBean srbean = new StudentRegistrationBean();
+			srbean.setStudentId(result.getString("studentId"));
+			srbean.setClassId(result.getString("classId"));
+			srbean.setStudentFname(result.getString("studentFname"));
+			srbean.setStudentLname(result.getString("studentLname"));
 
-			arraybean.addStudentArray(sdbean);
+			arraybean.addStudentArray(srbean);
 		}
 		}catch (SQLException e) {
 			// TODO: handle exception

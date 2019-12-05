@@ -1,7 +1,6 @@
 package login;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import bean.LoginBean;
+import bean.TeacherLoginBean;
 
 /**
  * Servlet implementation class Logout
@@ -26,21 +28,13 @@ public class LogoutServlet extends HttpServlet {
     }
 
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		LoginBean lbean = (LoginBean)session.getAttribute("stuid");
+		TeacherLoginBean tlbean = (TeacherLoginBean)session.getAttribute("teacherLoginInfo");
 		session.removeAttribute("stuid");
+		session.removeAttribute("teacherLoginInfo");
 
-
-		Enumeration<String> vals = session.getAttributeNames();
-
-		//取得した要素名をループ処理で全て削除する
-		while(vals.hasMoreElements()){
-		  String nm = (String)vals.nextElement();
-		  session.removeAttribute(nm);
-		}
-
-		response.sendRedirect("ログアウト");
+		response.sendRedirect("login.html");
 	}
-
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.StudentNewInfoBean;
+import bean.StudentRegistrationBean;
 import dao.AccountInfoChangeDAO;
 
 /**
@@ -32,11 +32,11 @@ public class AccountInfoChangeProcessingServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		AccountInfoChangeDAO aicdao = new AccountInfoChangeDAO();
 		String send = "エラー画面";
-		StudentNewInfoBean snibean = (StudentNewInfoBean) session.getAttribute("newstudentinfo");
-		String studentId = snibean.getStudentId();
-		String studentNewLname = snibean.getStudentLname();
-		String studentNewFname = snibean.getStudentFname();
-		String classNewId = snibean.getClassId();
+		StudentRegistrationBean srbean = (StudentRegistrationBean) session.getAttribute("newstudentinfo");
+		String studentId = srbean.getStudentId();
+		String studentNewLname = srbean.getStudentLname();
+		String studentNewFname = srbean.getStudentFname();
+		String classNewId = srbean.getClassId();
 
 		if (aicdao.AccountInfoChange(studentId, studentNewLname, studentNewFname, classNewId)) {
 			session.removeAttribute("newstudentinfo");

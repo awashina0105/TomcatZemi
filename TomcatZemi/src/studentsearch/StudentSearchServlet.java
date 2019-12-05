@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 
 import bean.StudentArrayBean;
-import bean.StudentDeleteBean;
+import bean.StudentRegistrationBean;
 import dao.StudentSearchDAO;
 
 /**
@@ -33,16 +33,16 @@ public class StudentSearchServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		StudentDeleteBean sdbean = new StudentDeleteBean();
+		StudentRegistrationBean srbean = new StudentRegistrationBean();
 		StudentArrayBean arraybean = new StudentArrayBean();
 		StudentSearchDAO ssdao = new StudentSearchDAO();
 		String send = "エラー画面";
 
 		String name = request.getParameter("name");
 
-		sdbean = ssdao.StudentIdSearch(name);
+		srbean = ssdao.StudentIdSearch(name);
 
-		if (StringUtils.isEmpty(sdbean.getStudentId())) {
+		if (StringUtils.isEmpty(srbean.getStudentId())) {
 
 			arraybean = ssdao.StudentNameSearch(name);
 
@@ -63,7 +63,7 @@ public class StudentSearchServlet extends HttpServlet {
 				send = "検索結果表示画面";
 			}
 		}else{
-			session.setAttribute("studenIdInfo", sdbean);
+			session.setAttribute("studenIdInfo", srbean);
 			send = "検索結果表示画面";
 		}
 		response.sendRedirect(send);

@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.StudentInfoBean;
+import bean.StudentRegistrationBean;
 import dao.StudentDeleteDAO;
 
 /**
  * Servlet implementation class StudentdeleteServlet
  */
-@WebServlet("/StudentDeleteServlet")
+@WebServlet("/StudentDeleteCheckServlet")
 public class StudentDeleteCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,9 +33,9 @@ public class StudentDeleteCheckServlet extends HttpServlet {
 		StudentDeleteDAO sddao = new StudentDeleteDAO();
 		String send = "";
 
-		StudentInfoBean sibean = (StudentInfoBean) session.getAttribute("studentinfo");
+		StudentRegistrationBean srbean = (StudentRegistrationBean) session.getAttribute("studentinfo");
 
-		String studentId = sibean.getStudentId();
+		String studentId = srbean.getStudentId();
 
 		if (sddao.studentdelete(studentId)) {
 			session.removeAttribute("studentClassInfoarray");

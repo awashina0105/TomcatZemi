@@ -11,7 +11,7 @@ public class OpenAndCloseDAO {
 	public void open() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connect = DriverManager.getConnection("jdbc:mysql://localhost/ZEMI", "TomcatZemi", "tomcat" );
+			connect = DriverManager.getConnection("jdbc:mysql://localhost/zemi", "TomcatZemi", "tomcat" );
 
 		}catch (SQLException e) {
 			e.printStackTrace();

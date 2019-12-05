@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import bean.StudentArrayBean;
-import bean.StudentDeleteBean;
+import bean.StudentRegistrationBean;
 
 public class StudentSearchDAO extends OpenAndCloseDAO {
 
@@ -15,8 +15,8 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 		open();
 	}
 
-	public StudentDeleteBean StudentIdSearch(String name){
-		StudentDeleteBean sdbean = new StudentDeleteBean();
+	public StudentRegistrationBean StudentIdSearch(String name){
+		StudentRegistrationBean srbean = new StudentRegistrationBean();
 
 		try{
 			statement = connect.prepareStatement("SELECT * FROM student_table WHERE StudentId = ?");
@@ -25,10 +25,10 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 
 			if (resultSet.next()) {
 
-				sdbean.setStudentId(resultSet.getString("StudentId"));
-				sdbean.setClassId(resultSet.getString("ClassId"));
-				sdbean.setStudentLname(resultSet.getString("StudentLname"));
-				sdbean.setStudentFname(resultSet.getString("StudentFname"));
+				srbean.setStudentId(resultSet.getString("StudentId"));
+				srbean.setClassId(resultSet.getString("ClassId"));
+				srbean.setStudentLname(resultSet.getString("StudentLname"));
+				srbean.setStudentFname(resultSet.getString("StudentFname"));
 			}
 
 		}catch (SQLException e) {
@@ -36,7 +36,7 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 			e.printStackTrace();
 		}
 
-		return sdbean;
+		return srbean;
 
 	}
 
@@ -51,13 +51,13 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 			result = statement.executeQuery();
 
 			while(result.next()){
-				StudentDeleteBean sdbean = new StudentDeleteBean();
-				sdbean.setStudentId(result.getString("studentId"));
-				sdbean.setClassId(result.getString("classId"));
-				sdbean.setStudentFname(result.getString("studentFname"));
-				sdbean.setStudentLname(result.getString("studentLname"));
+				StudentRegistrationBean srbean = new StudentRegistrationBean();
+				srbean.setStudentId(result.getString("studentId"));
+				srbean.setClassId(result.getString("classId"));
+				srbean.setStudentFname(result.getString("studentFname"));
+				srbean.setStudentLname(result.getString("studentLname"));
 
-				arraybean.addStudentArray(sdbean);
+				arraybean.addStudentArray(srbean);
 			}
 			}catch (SQLException e) {
 				// TODO: handle exception
@@ -79,13 +79,13 @@ public class StudentSearchDAO extends OpenAndCloseDAO {
 			result = statement.executeQuery();
 
 			while(result.next()){
-				StudentDeleteBean sdbean = new StudentDeleteBean();
-				sdbean.setStudentId(result.getString("studentId"));
-				sdbean.setClassId(result.getString("classId"));
-				sdbean.setStudentFname(result.getString("studentFname"));
-				sdbean.setStudentLname(result.getString("studentLname"));
+				StudentRegistrationBean srbean = new StudentRegistrationBean();
+				srbean.setStudentId(result.getString("studentId"));
+				srbean.setClassId(result.getString("classId"));
+				srbean.setStudentFname(result.getString("studentFname"));
+				srbean.setStudentLname(result.getString("studentLname"));
 
-				arraybean.addStudentArray(sdbean);
+				arraybean.addStudentArray(srbean);
 			}
 			}catch (SQLException e) {
 				// TODO: handle exception

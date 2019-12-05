@@ -4,8 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import bean.TeacherAccountInfoChangeBean;
 import bean.TeacherArrayBean;
-import bean.TeacherInfoDisplayBean;
 
 public class TeacherInfoDisplayDAO extends OpenAndCloseDAO {
 
@@ -25,7 +25,7 @@ public class TeacherInfoDisplayDAO extends OpenAndCloseDAO {
 		result = statement.executeQuery();
 
 		while(result.next()){
-			TeacherInfoDisplayBean tidbean = new TeacherInfoDisplayBean();
+			TeacherAccountInfoChangeBean tidbean = new TeacherAccountInfoChangeBean();
 			tidbean.setTeacherId(result.getString("TeacherId"));
 			tidbean.setTeacherLname(result.getString("TeacherLname"));
 			tidbean.setTeacherFname(result.getString("TeacherFname"));

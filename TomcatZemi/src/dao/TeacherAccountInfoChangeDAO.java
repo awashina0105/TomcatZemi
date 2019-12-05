@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import bean.TeacherAccountInfoChangeBean;
-import bean.TeacherAccountNewInfoChangeBean;
 
 public class  TeacherAccountInfoChangeDAO extends OpenAndCloseDAO {
 
@@ -185,8 +184,8 @@ public class  TeacherAccountInfoChangeDAO extends OpenAndCloseDAO {
 
 	}
 
-	public TeacherAccountNewInfoChangeBean SubjectIdSearch(String subjectNewName){
-		TeacherAccountNewInfoChangeBean tanicbean = new TeacherAccountNewInfoChangeBean();
+	public TeacherAccountInfoChangeBean SubjectIdSearch(String subjectNewName){
+		TeacherAccountInfoChangeBean tanicbean = new TeacherAccountInfoChangeBean();
 
 		try{
 			statement = connect.prepareStatement("SELECT * FROM subject_table WHERE subjectName = ?");
@@ -195,7 +194,7 @@ public class  TeacherAccountInfoChangeDAO extends OpenAndCloseDAO {
 
 			if (resultSet.next()) {
 
-				tanicbean.setSubjectNewId(resultSet.getString("SubjectId"));
+				tanicbean.setSubjectId(resultSet.getString("SubjectId"));
 			}
 
 		}catch (SQLException e) {

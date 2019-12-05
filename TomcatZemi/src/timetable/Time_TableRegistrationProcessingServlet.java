@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.FridayBean;
 import bean.MondayBean;
+import bean.TeacherLoginBean;
 import bean.ThursdayBean;
 import bean.TimeBean;
 import bean.TuesdayBean;
@@ -65,7 +66,8 @@ public class Time_TableRegistrationProcessingServlet extends HttpServlet {
 		String fridayClassRoom[] = fridayClassbean.getFridayClassRoom();
 		int majorId = tbean.getMajorId();
 		int yearMonth = tbean.getYearMonth();
-		String classId = tbean.getClassId();  //ClassIdをセッションで保持している所から持ってくる。
+		TeacherLoginBean tlbean = (TeacherLoginBean) session.getAttribute("teacherLoginInfo");
+		String classId = tlbean.getClassId();
 		String room = "";
 
 		String dayTime = "";

@@ -4,18 +4,20 @@ public class LoginBean {
 
 
 	private String studentId;
-	private String studentPass;
+	private String studentLname;
 
+	public String getStudentLname() {
+		return studentLname;
+	}
+	public void setStudentLname(String studentLname) {
+		this.studentLname = studentLname;
+	}
 	public String getStudentId() {
 		return studentId;
 	}
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
-	public String getStudentPass() {
-		return studentPass;
-	}
-	public void setStudentPass(String studentPass) {
-		this.studentPass = studentPass;
-	}
+
+
 }

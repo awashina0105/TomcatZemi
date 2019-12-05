@@ -4,22 +4,22 @@ import java.util.ArrayList;
 
 public class StudentArrayBean {
 
-	private ArrayList<StudentDeleteBean> studentArray;
+	private ArrayList<StudentRegistrationBean> studentArray;
 
 	public StudentArrayBean(){
-		studentArray = new ArrayList<StudentDeleteBean>();
+		studentArray = new ArrayList<StudentRegistrationBean>();
 	}
 
-	public ArrayList<StudentDeleteBean> getStudentArray() {
+	public ArrayList<StudentRegistrationBean> getStudentArray() {
 		return studentArray;
 	}
 
-	public void setStudentArray(ArrayList<StudentDeleteBean> studentArray) {
+	public void setStudentArray(ArrayList<StudentRegistrationBean> studentArray) {
 		this.studentArray = studentArray;
 	}
 
-	public void addStudentArray(StudentDeleteBean sdbean){
-		studentArray.add(sdbean);
+	public void addStudentArray(StudentRegistrationBean srbean){
+		studentArray.add(srbean);
 	}
 
 	public int getArrayListSize(){

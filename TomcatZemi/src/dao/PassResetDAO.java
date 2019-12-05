@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import bean.TeacherInfoBean;
+import bean.TeacherAccountInfoChangeBean;
 import sha2.SaltUserPassword;
 import sha2.ToSHA2;
 
@@ -50,8 +50,8 @@ public class PassResetDAO extends OpenAndCloseDAO {
 	}
 
 
-	public TeacherInfoBean TeacherIdSearch(String teacherId){
-		TeacherInfoBean tibean = new TeacherInfoBean();
+	public TeacherAccountInfoChangeBean TeacherIdSearch(String teacherId){
+		TeacherAccountInfoChangeBean tibean = new TeacherAccountInfoChangeBean();
 
 		try{
 			statement = connect.prepareStatement("SELECT * FROM teacher_table WHERE TeacherId = ?");

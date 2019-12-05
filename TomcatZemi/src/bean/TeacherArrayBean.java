@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class TeacherArrayBean {
 
-	private ArrayList<TeacherInfoDisplayBean> teacherArray;
+	private ArrayList<TeacherAccountInfoChangeBean> teacherArray;
 
 	public TeacherArrayBean(){
-		teacherArray = new ArrayList<TeacherInfoDisplayBean>();
+		teacherArray = new ArrayList<TeacherAccountInfoChangeBean>();
 	}
 
-	public ArrayList<TeacherInfoDisplayBean> getTeacherArray() {
+	public ArrayList<TeacherAccountInfoChangeBean> getTeacherArray() {
 		return teacherArray;
 	}
 
-	public void setTeacherArray(ArrayList<TeacherInfoDisplayBean> teacherArray) {
+	public void setTeacherArray(ArrayList<TeacherAccountInfoChangeBean> teacherArray) {
 		this.teacherArray = teacherArray;
 	}
 
-	public void addTeacherArray(TeacherInfoDisplayBean tidbean){
+	public void addTeacherArray(TeacherAccountInfoChangeBean tidbean){
 		teacherArray.add(tidbean);
 	}
 

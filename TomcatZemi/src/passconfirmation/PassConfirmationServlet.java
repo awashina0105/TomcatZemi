@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 import bean.LoginBean;
 import dao.GetSaltDAO;
 import dao.PassConfirmationDAO;
-import sha2.SaltUserPassword;
-import sha2.ToSHA2;
 
 /**
  * Servlet implementation class PassChangeServlet
@@ -45,13 +43,7 @@ public class PassConfirmationServlet extends HttpServlet {
 
 		String salt = gsdao.getSalt(studentId);
 
-		ToSHA2 SHA = new ToSHA2();
-		SaltUserPassword sa = new SaltUserPassword();
-		String studentIdBox = SHA.getDigest(studentId);
-		String studentPassBox = SHA.getDigest(studentPass);
-		String passHash = sa.getDigest(studentIdBox, studentPassBox, salt);
-
-		if (pcdao.passConfirmation(studentId).equals(passHash)) {
+		if (pcdao.passConfirmation(studentId, studentPass, salt)){
 			send = "パスワード変更画面";
 		}else{
 			send = "エラー画面";

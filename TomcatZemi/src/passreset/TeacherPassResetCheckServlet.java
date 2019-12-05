@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.TeacherInfoBean;
+import bean.TeacherAccountInfoChangeBean;
 import dao.GetSaltDAO;
 import dao.PassResetDAO;
 
@@ -31,7 +31,7 @@ public class TeacherPassResetCheckServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		TeacherInfoBean tibean = (TeacherInfoBean) session.getAttribute("teacherinfo");
+		TeacherAccountInfoChangeBean tibean = (TeacherAccountInfoChangeBean) session.getAttribute("teacherinfo");
 		PassResetDAO prdao = new PassResetDAO();
 		GetSaltDAO gsdao = new GetSaltDAO();
 		String send = "エラー画面";

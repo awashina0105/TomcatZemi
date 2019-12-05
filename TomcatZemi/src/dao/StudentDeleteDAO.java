@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import bean.StudentInfoBean;
+import bean.StudentRegistrationBean;
 
 public class StudentDeleteDAO extends OpenAndCloseDAO {
 
@@ -41,8 +41,8 @@ public class StudentDeleteDAO extends OpenAndCloseDAO {
 	}
 
 
-	public StudentInfoBean StudentInfoSearch(String studentId){
-		StudentInfoBean sibean = new StudentInfoBean();
+	public StudentRegistrationBean StudentInfoSearch(String studentId){
+		StudentRegistrationBean srbean = new StudentRegistrationBean();
 
 		try{
 			statement = connect.prepareStatement("SELECT * FROM student_table WHERE StudentId = ?");
@@ -51,10 +51,10 @@ public class StudentDeleteDAO extends OpenAndCloseDAO {
 
 			if (resultSet.next()) {
 
-				sibean.setStudentId(resultSet.getString("studentId"));
-				sibean.setClassId(resultSet.getString("classId"));
-				sibean.setStudentLname(resultSet.getString("studentLname"));
-				sibean.setStudentFname(resultSet.getString("studentFname"));
+				srbean.setStudentId(resultSet.getString("studentId"));
+				srbean.setClassId(resultSet.getString("classId"));
+				srbean.setStudentLname(resultSet.getString("studentLname"));
+				srbean.setStudentFname(resultSet.getString("studentFname"));
 
 			}
 
@@ -63,7 +63,7 @@ public class StudentDeleteDAO extends OpenAndCloseDAO {
 			e.printStackTrace();
 		}
 
-		return sibean;
+		return srbean;
 
 	}
 

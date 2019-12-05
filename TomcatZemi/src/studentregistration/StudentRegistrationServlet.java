@@ -11,7 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
+import bean.ErrorBean;
 import bean.StudentRegistrationBean;
+import dao.StudentRegistrationDAO;
 import salt.CreateSalt;
 
 /**
@@ -26,19 +28,21 @@ public class StudentRegistrationServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		StudentRegistrationBean srbean = new StudentRegistrationBean();
+		StudentRegistrationDAO dao = new StudentRegistrationDAO();
+		ErrorBean errorBean;
 		CreateSalt cSalt = new CreateSalt();
 
 
-		String studentId = request.getParameter("studentId");
-		String studentFname = request.getParameter("studentFname");
-		String studentLname = request.getParameter("studentLname");
+		String studentId = request.getParameter("uid");
+		String studentFname = request.getParameter("sfname");
+		String studentLname = request.getParameter("slname");
 		String classId = request.getParameter("classId");
-		String studentMail = ("初期値");
-		String studentPass = ("初期値");
-		String questionId = ("初期値");
-		String answer = ("初期値");
+		String studentMail = ("test");
+		String studentPass = ("1234");
+		String questionId = ("q1");
+		String answer = ("1");
 		String salt = cSalt.createSalt();
-		String send = ("エラー画面");
+		String send = "error.jsp";
 
 
 
@@ -54,12 +58,29 @@ public class StudentRegistrationServlet extends HttpServlet {
 
 
 		if(StringUtils.isEmpty(srbean.getStudentId()) || StringUtils.isEmpty(srbean.getStudentFname()) || StringUtils.isEmpty(srbean.getStudentLname()) || StringUtils.isEmpty(srbean.getClassId())){
-			send = "エラー画面";
+			send = "error.jsp";
+			errorBean = new ErrorBean();
+			errorBean.setErrorMessage("入力された値に空値があります。");
+			errorBean.setNextUrl("account_entry.html");
+			session.setAttribute("errorInfo", errorBean);
 
 
 		}else{
+
+			if (!dao.findId(srbean.getStudentId())) {
+
 			session.setAttribute("studentInfo", srbean);
-			send="登録確認画面";
+			send="AkauntTourokuTest.jsp";
+
+			}else{
+
+				send = "error.jsp";
+				errorBean = new ErrorBean();
+				errorBean.setErrorMessage("同じIDのユーザが既に登録されています。");
+				errorBean.setNextUrl("account_entry.html");
+				session.setAttribute("errorInfo", errorBean);
+
+			}
 		}
 		response.sendRedirect(send);
 

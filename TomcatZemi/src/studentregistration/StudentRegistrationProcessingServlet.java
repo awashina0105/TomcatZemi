@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
+
+import bean.ErrorBean;
 import bean.StudentRegistrationBean;
 import dao.MailDeliverySettingDAO;
 import dao.StudentRegistrationDAO;
@@ -32,6 +35,7 @@ public class StudentRegistrationProcessingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		StudentRegistrationBean srbean = (StudentRegistrationBean) session.getAttribute("studentInfo");
+		ErrorBean errorBean;
 		StudentRegistrationDAO dao = new StudentRegistrationDAO();
 		MailDeliverySettingDAO mdsdao = new MailDeliverySettingDAO();
 
@@ -46,32 +50,55 @@ public class StudentRegistrationProcessingServlet extends HttpServlet {
 		String salt = srbean.getSalt();
 		String send = "";
 
-
-		if (dao.studentRegistration(studentId, studentPass, studentFname, studentLname, studentMail, classId, questionId, answer, salt)) {
-
-			int categoryId1 = 1;
-			int categoryId2 = 3;
-			int categoryId3 = 4;
-			int categoryId4 = 5;
-			int categoryId5 = 6;
-
-			if (mdsdao.mailDeliverySettingStart(studentId, categoryId1, categoryId2, categoryId3, categoryId4, categoryId5)) {
-				session.removeAttribute("studentInfo");
-				send = "登録完了画面";
-
-			}else{
-				send = "自動メール配信設定エラー画面";
-			}
+		srbean = dao.studentMajorGet(classId);
+		int majorId = srbean.getMajorId();
 
 
+		if(StringUtils.isEmpty(studentId) || StringUtils.isEmpty(studentFname) || StringUtils.isEmpty(studentLname) || StringUtils.isEmpty(classId)){
+
+			send = "error.jsp";
+			errorBean = new ErrorBean();
+			errorBean.setErrorMessage("入力された値に空値があります。");
+			errorBean.setNextUrl("account_entry.html");
+			session.setAttribute("errorInfo", errorBean);
 
 		}else{
-			send = "生徒登録エラー画面";
+
+			if (dao.studentRegistration(studentId, studentPass, studentFname, studentLname, studentMail, classId, majorId, questionId, answer, salt)) {
+
+				int categoryId1 = 1;
+				int categoryId2 = 3;
+				int categoryId3 = 4;
+				int categoryId4 = 5;
+				int categoryId5 = 6;
+
+				if (mdsdao.mailDeliverySettingStart(studentId, categoryId1, categoryId2, categoryId3, categoryId4, categoryId5)) {
+					session.removeAttribute("studentInfo");
+					send = "account_comp-of-enrty.html";
+
+				}else{
+					send = "error.jsp";
+					errorBean = new ErrorBean();
+					errorBean.setErrorMessage("自動メール配信設定時にエラーが発生しました。");
+					errorBean.setNextUrl("AkauntTourokuTest.jsp");
+					session.setAttribute("errorInfo", errorBean);
+				}
+
+
+
+			}else{
+				send = "error.jsp";
+				errorBean = new ErrorBean();
+				errorBean.setErrorMessage("生徒情報の登録時にエラーが発生しました。");
+				errorBean.setNextUrl("account_entry.html");
+				session.setAttribute("errorInfo", errorBean);
+			}
+			response.sendRedirect(send);
+
+
+
+
 		}
-		response.sendRedirect(send);
-
-
-
 	}
 
 }

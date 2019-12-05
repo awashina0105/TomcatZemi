@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 
 import bean.LoginBean;
-import bean.PassChangeBean;
 import dao.GetSaltDAO;
 import dao.PassChangeDAO;
 
@@ -40,13 +39,12 @@ public class PassChangeServlet extends HttpServlet {
 		String studentId = lbean.getStudentId();
 
 		GetSaltDAO gsdao = new GetSaltDAO();
-		PassChangeBean pcbean = new PassChangeBean();
 		PassChangeDAO pcdao = new PassChangeDAO();
 		String studentNewPass = request.getParameter("studentNewPass");
 		String confirmationPass = request.getParameter("confirmationPass");
 		String send = "";
 
-		if(StringUtils.isEmpty(pcbean.getStudentNewPass()) || StringUtils.isEmpty(pcbean.getConfirmationPass())){
+		if(StringUtils.isEmpty(studentNewPass) || StringUtils.isEmpty(confirmationPass)){
 
 			send = "空白エラー画面";
 

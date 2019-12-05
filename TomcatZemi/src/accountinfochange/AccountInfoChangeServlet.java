@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 
-import bean.StudentInfoBean;
+import bean.StudentRegistrationBean;
 import dao.StudentDeleteDAO;
 
 /**
@@ -37,15 +37,15 @@ public class AccountInfoChangeServlet extends HttpServlet {
 
 		String studentId = request.getParameter("studentId");
 
-		StudentInfoBean sibean = sddao.StudentInfoSearch(studentId);
+		StudentRegistrationBean srbean = sddao.StudentInfoSearch(studentId);
 
-		String studentIdCheck = sibean.getStudentId();
+		String studentIdCheck = srbean.getStudentId();
 
 		if (StringUtils.isEmpty(studentIdCheck)) {
 			send = "エラー画面";
 
 		}else{
-			session.setAttribute("studentinfo", sibean);
+			session.setAttribute("studentinfo", srbean);
 
 			send = "アカウント情報変更画面";
 		}

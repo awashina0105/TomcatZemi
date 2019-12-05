@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.StudentInfoBean;
-import bean.StudentNewInfoBean;
+import bean.StudentRegistrationBean;
 
 /**
  * Servlet implementation class AccountInfoChangeCheckServlet
@@ -34,16 +33,15 @@ public class AccountInfoChangeCheckServlet extends HttpServlet {
 		String classId = request.getParameter("classId");
 		String send = "アカウント変更確認画面";
 
-		StudentInfoBean sibean = (StudentInfoBean) session.getAttribute("studentinfo");
-		StudentNewInfoBean snibean = new StudentNewInfoBean();
+		StudentRegistrationBean srbean = (StudentRegistrationBean) session.getAttribute("studentinfo");
 
-		String studentId = sibean.getStudentId();
+		String studentId = srbean.getStudentId();
 
-		snibean.setStudentId(studentId);
-		snibean.setStudentLname(studentLname);
-		snibean.setStudentFname(studentFname);
-		snibean.setClassId(classId);
-		session.setAttribute("newstudentinfo", snibean);
+		srbean.setStudentId(studentId);
+		srbean.setStudentLname(studentLname);
+		srbean.setStudentFname(studentFname);
+		srbean.setClassId(classId);
+		session.setAttribute("newstudentinfo", srbean);
 
 		response.sendRedirect(send);
 	}

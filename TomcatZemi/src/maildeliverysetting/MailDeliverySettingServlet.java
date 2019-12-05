@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 
 import bean.LoginBean;
-import bean.MailDeliverySettingBean;
 import dao.MailDeliverySettingDAO;
 
 /**
@@ -26,7 +25,6 @@ public class MailDeliverySettingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		MailDeliverySettingDAO mdsdao = new MailDeliverySettingDAO();
-		MailDeliverySettingBean mdsbean = (MailDeliverySettingBean) session.getAttribute("maildeliveryinfo");
 		String send = "";
 
 		LoginBean lbean = (LoginBean) session.getAttribute("stuid");
@@ -38,11 +36,11 @@ public class MailDeliverySettingServlet extends HttpServlet {
 			send = "エラー画面";
 
 		}else{
-			int categoryId1 = mdsbean.getCategoryId1();
-			int categoryId2 = mdsbean.getCategoryId2();
-			int categoryId3 = mdsbean.getCategoryId3();
-			int categoryId4 = mdsbean.getCategoryId4();
-			int categoryId5 = mdsbean.getCategoryId5();
+			int categoryId1 = Integer.parseInt(request.getParameter("categoryId1"));
+			int categoryId2 = Integer.parseInt(request.getParameter("categoryId2"));
+			int categoryId3 = Integer.parseInt(request.getParameter("categoryId3"));
+			int categoryId4 = Integer.parseInt(request.getParameter("categoryId4"));
+			int categoryId5 = Integer.parseInt(request.getParameter("categoryId5"));
 
 			if (mdsdao.mailDeliverySetting(studentId, categoryId1, categoryId2, categoryId3, categoryId4, categoryId5)) {
 				session.removeAttribute("maildeliveryinfo");

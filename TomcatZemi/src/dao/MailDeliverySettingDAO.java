@@ -57,13 +57,14 @@ public class MailDeliverySettingDAO extends OpenAndCloseDAO {
 
 
 		try{
-			statement = connect.prepareStatement("INSERT INTO time_table (studentId, categoryId1, categoryId2, categoryId3, categoryId4, categoryId5) VALUES (?, ?, ?, ?, ?, ?)");
-			statement.setInt(1, categoryId1);
-			statement.setInt(2, categoryId2);
-			statement.setInt(3, categoryId3);
-			statement.setInt(4, categoryId4);
-			statement.setInt(5, categoryId5);
-			statement.setString(6, studentId);
+			statement = connect.prepareStatement("INSERT INTO mail_delivery_table (studentId, categoryId1, categoryId2, categoryId3, categoryId4, categoryId5) VALUES (?, ?, ?, ?, ?, ?)");
+			statement.setString(1, studentId);
+			statement.setInt(2, categoryId1);
+			statement.setInt(3, categoryId2);
+			statement.setInt(4, categoryId3);
+			statement.setInt(5, categoryId4);
+			statement.setInt(6, categoryId5);
+
 			result = statement.executeUpdate();
 
 			if(result != 0) {

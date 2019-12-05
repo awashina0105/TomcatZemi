@@ -12,9 +12,16 @@ public class StudentRegistrationBean {
 	private String questionId;
 	private String answer;
 	private String salt;
+	private int majorId;
 
 
 
+	public int getMajorId() {
+		return majorId;
+	}
+	public void setMajorId(int majorId) {
+		this.majorId = majorId;
+	}
 	public String getStudentId() {
 		return studentId;
 	}
