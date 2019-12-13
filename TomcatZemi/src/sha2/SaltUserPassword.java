@@ -27,5 +27,31 @@ public class SaltUserPassword {
 
         return after;
     }
+    
+    public String getDigest(String answer, String salt){
+    	
+    	ToSHA2 toSha2 = new ToSHA2();
+    	
+    	String con = salt + toSha2.getDigest(answer);
+    	
+    	String after = toSha2.getDigest(con);
+    	
+    	return after;
+    	
+    }
+
+    public static void main (String args[]){
+
+//    	CreateSalt cs = new CreateSalt();
+//    	String salt = cs.createSalt();
+//    	System.out.println("salt:  " + salt);
+    	SaltUserPassword su = new SaltUserPassword();
+
+    	//System.out.println("password:  " +su.getDigest("186058","password", salt ));
+    	
+    	System.out.println(su.getDigest("", ""));
+
+
+    }
 
 }
